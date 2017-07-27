@@ -1,0 +1,21 @@
+// Font paths
+// -------------------------
+
+@font-face {
+  font-family: "E-Messaging";
+  src: url("../fonts/E-Messaging_7d23770310eb84fbb7072dd3b99ab3be.eot");
+  src: url("../fonts/E-Messaging_7d23770310eb84fbb7072dd3b99ab3be.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/E-Messaging_7d23770310eb84fbb7072dd3b99ab3be.woff2") format("woff2"),
+       url("../fonts/E-Messaging_7d23770310eb84fbb7072dd3b99ab3be.woff") format("woff"),
+       url("../fonts/E-Messaging_7d23770310eb84fbb7072dd3b99ab3be.ttf") format("truetype"),
+       url("../fonts/E-Messaging_7d23770310eb84fbb7072dd3b99ab3be.svg#E-Messaging") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "E-Messaging";
+    src: url("../fonts/E-Messaging_7d23770310eb84fbb7072dd3b99ab3be.svg#E-Messaging") format("svg");
+  }
+}
