@@ -725,6 +725,7 @@ function bulkDelete() {
     var categoryName = category.data('thetitle').toLowerCase(),
         uniqueID,
         deleteFunction,
+        cancelFunction,
         modalObject;
 
     switch (categoryName) {
@@ -745,11 +746,15 @@ function bulkDelete() {
                 uniqueID = $('.contact-list-card tr input:checked').parent().parent().data('thecontactid');
                 removeContact_API(uniqueID);
                 contactsPopulate();
+            };
+            cancelFunction = function() {
+                $('.column-2-header span:nth(1)').show();
             }
-            modalObject = { 'alertType': 'danger', 'content': 'Warning: This will permanently delete the selected contact(s)!', 'primaryActionText': 'delete', 'secondaryActionText': 'cancel', 'primaryAction': deleteFunction, 'secondaryAction': '' };
+            modalObject = { 'alertType': 'danger', 'content': 'Warning: This will permanently delete the selected contact(s)!', 'primaryActionText': 'delete', 'secondaryActionText': 'cancel', 'primaryAction': deleteFunction, 'secondaryAction': cancelFunction };
             callModal(modalObject);
             break;
     }
+    $('.column-2-header span:nth(1)').hide();
 }
 
 //********************************************************************************************************
