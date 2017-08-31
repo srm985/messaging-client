@@ -380,7 +380,7 @@ function moveMessage(action, actionType) {
                 selectedMessage.remove();
             } else if (actionType == 'bulk') {
                 $('.message-thumbnail input:checked').each(function() {
-                    moveMessage_API($(this).parent().parent().data('thekey'), category.data('thetitle'), action.toLowerCase() == 'restore' ? 'inbox' : '');
+                    moveMessage_API($(this).parent().parent().parent().data('thekey'), category.data('thetitle'), action.toLowerCase() == 'restore' ? 'inbox' : '');
                     $(this).parent().parent().remove();
                 });
             }
