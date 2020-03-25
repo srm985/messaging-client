@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style type="text/css">
+        .fouc_blocker {
+            height: 10000px;
+            width: 100%;
+            z-index: 10000;
+            background-color: #3D414D;
+        }
+    </style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Initialize webpage sizing.-->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!--Grab BS3 and support.-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script defer="defer" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--Asynchronously load our fonts.-->
+    <script type="text/javascript">WebFontConfig = {
+            google: {
+                families: ['Lato:300, 400, 900']
+            }
+        };
+        (function () {
+            var wf = document.createElement('script');
+            wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+                '://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+            wf.type = 'text/javascript';
+            wf.async = 'true';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(wf, s);
+        })();</script><!-- Google Analytics -->
+    <script>window.ga = window.ga || function () {
+            (ga.q = ga.q || []).push(arguments)
+        };
+        ga.l = +new Date;
+        ga('create', 'UA-86885981-1', 'auto');
+        ga('send', 'pageview');</script>
+    <script async src="https://www.google-analytics.com/analytics.js"></script><!-- End Google Analytics -->
+    <!--Link local CSS sheets.-->
+    <link rel="stylesheet" href="theme_styleguide.css">
+    <link rel="stylesheet" type="text/css" href="messaging-demo-page-styleguide.css">
+    <!--Link local JS sheets.-->
+    <script type="text/javascript" src="messaging-demo-page.js"></script>
+    <!--Page Description-->
+    <title>Sean McQuay | Messaging Client Demo</title>
+    <link rel="icon" href="/images/icon.png">
+    <meta name="description" content="A messaging client allowing inmates to communicate with their loved ones.">
+    <meta name="keywords" content="">
+    <meta http-equiv="author" content="Sean McQuay">
+    <meta http-equiv="pragma" content="no-cache">
+    <!--Open Graph Markup-->
+    <meta property="og:url" content="https://www.seanmcquay.com/messaging-client/demo-page.htm">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Messaging Client">
+    <meta property="og:description" content="A messaging client allowing inmates to communicate with their loved ones.">
+    <meta property="og:image" content="https://www.seanmcquay.com/images/messaging-client/phone-desktop-mockup.png">
+</head>
+
+<body>
+    <div class="device-selector"><button data-thedevice="0">Mobile</button> <button data-thedevice="1">Kiosk</button> <button data-thedevice="2">Desktop</button></div>
+    <div class="demo-wrapper mobile-demo"><img class="content-screen">
+        <div class="application-wrapper"></div>
+    </div>
+    <div class="demo-wrapper kiosk-demo"><img class="content-screen">
+        <div class="application-wrapper"></div>
+    </div>
+    <div class="demo-wrapper desktop-demo"><img class="content-screen">
+        <div class="application-wrapper"></div>
+    </div>
+</body>
+
+</html>

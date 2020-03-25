@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/code/responsive/web/js/jquery-mobile.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <script type="text/javascript" src="/code/responsive/web/js/emessaging.js"></script>
+    <script type="text/javascript" src="/code/responsive/web/js/mocked-data.js"></script>
+    <script type="text/javascript" src="/code/responsive/web/js/mocked-images.js"></script>
+    <link rel="stylesheet" type="text/css" href="/code/responsive/web/css/emessaging.css">
+    <link rel="stylesheet" type="text/css" href="/code/responsive/web/font-icons/css/styles.min.css">
+    <title>E-Messaging - Inbox</title>
+</head>
+
+<body>
+    <div class="app-container">
+        <div class="blackout-wrapper">
+            <div class="modal-content-wrapper">
+                <div class="modal-message-wrapper"></div>
+                <img class="modal-image" src="" alt="missing image" />
+                <div class="modal-nav-wrapper">
+                    <button class="secondary-button-gray" data-theActionType="2"></button>
+                    <button class="primary-button" data-theActionType="1"></button>
+                </div>
+            </div>
+        </div>
+        <div class="column-1">
+            <div class="logo-section">
+                <div class="avatar"></div>
+                <button class="primary-button-blue" data-theTitle="Stamps">BUY STAMPS</button>
+            </div>
+            <div class="controls-section">
+                <ul>
+                    <li class="navigation-button" data-theTitle="Stamps"><i class="icons8-post-stamp"></i><span>Stamps</span></li>
+                    <li class="navigation-button" data-theTitle="Contacts"><i class="icons8-address-book"></i><span>Contacts</span></li>
+                    <li class="navigation-button" data-theTitle="Inbox"><i class="icons8-read-message-2"></i><span>Inbox</span><span class="unread-email-count">13</span></li>
+                    <li class="navigation-button" data-theTitle="Sent"><i class="icons8-sent"></i><span>Sent</span></li>
+                    <li class="navigation-button" data-theTitle="Drafts"><i class="icons8-edit-file-2"></i><span>Drafts</span></li>
+                    <li class="navigation-button" data-theTitle="Trash"><i class="icons8-delete-2"></i><span>Trash</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="column-2">
+            <div class="column-2-header">
+                <span>Inbox</span><span class="bulk-action bulk-action-1"><i class="icons8-delete-2"></i><u>Delete</u></span>
+                <p><u><span>Stamps</span>:&nbsp;<span></span></u></p>
+            </div>
+            <div class="column-2a">
+                <ul></ul>
+            </div>
+            <div class="column-2b">
+                <div class="message-card">
+                    <div class="message-card-header">
+                        <div class="header-information">
+                            <p class="header-line-1"><b><span>From</span>:</b>&nbsp;<span></span></p>
+                            <p class="header-line-2"><b><span>Subject</span>:</b>&nbsp;<span></span></p>
+                            <p class="header-line-3"><b><span>Attachment</span>:</b>&nbsp;<span class="image-link"></span></p>
+                        </div>
+                        <div class="header-actions"><i class="action-1 icons8-reply-arrow-2"></i><i class="action-2 icons8-restore-page-2"></i><i class="action-3 icons8-delete-2"></i></div>
+                    </div>
+                    <p class="message-body"></p>
+                </div>
+            </div>
+            <div class="column-2c">
+                <!--*******************Blank canvas for reporting.*******************-->
+                <div class="blank-canvas"></div>
+                <!--*******************Email Reply Card*******************-->
+                <div class="email-reply">
+                    <div class="reply-header">
+                        <div class="reply-info">
+                            <p class="line-1"><span>To:</span>&nbsp;<span></span></p>
+                            <p class="line-2"><span>Subject:</span>&nbsp;<span></span></p>
+                            <p class="line-3"><span>Attachment:</span>&nbsp;<span></span><span class="attachment-remove-button"><i class="icons8-multiply-2-2"></i><u>Remove</u></span>
+                                <label for="attachment-form" class="attachment-button icons8-plus-2-math-2"><u>Add Image</u></label>
+                                <input type="file" name="attachment" id="attachment-form">
+                            </p>
+                        </div>
+                    </div>
+                    <div class="reply-body">
+                        <div contenteditable="true"></div>
+                    </div>
+                </div>
+                <!--*******************Contact List Card*******************-->
+                <table class="contact-list-card"></table>
+                <!--*******************Contact Search Card*******************-->
+                <div class="contact-search-card">
+                    <div>
+                        <div>
+                            <label>Facility State:</label>
+                            <br>
+                            <select name="facilityState">
+                                <option selected="selected">Select State</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Facility Name:</label>
+                            <br>
+                            <select name="facilityName">
+                                <option selected="selected">Select Facility</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>First Name:</label>
+                            <br>
+                            <input type="text" name="firstName">
+                        </div>
+                        <div>
+                            <label>Last Name:</label>
+                            <br>
+                            <input type="text" name="lastName">
+                        </div>
+                        <div class="section-break"><span>OR</span></div>
+                        <br>
+                        <div>
+                            <label>Inmate ID:</label>
+                            <br>
+                            <input type="text" name="inmateID">
+                        </div>
+                    </div>
+                </div>
+                <!--*******************Contact Search Results Card*******************-->
+                <table class="contact-search-results-card"></table>
+                <div class="purchase-stamps-card">
+                    <form>
+                        <div class="section-chunk inmate-name-chunk">
+                            <label>Inmate Name</label>
+                            <br>
+                            <select>
+                                <option selected="selected">Select Inmate</option>
+                            </select>
+                        </div>
+                        <div class="section-chunk stamps-chunk">
+                        </div>
+                        <div class="section-break"></div>
+                        <div class="section-chunk saved-card-chunk">
+                            <label>Saved Credit Card</label>
+                            <br>
+                            <select>
+                                <option selected="selected">Select Card</option>
+                            </select>
+                        </div>
+                        <p class="new-card"><u>New Card</u>&nbsp;<i class="icons8-sort-down-filled"></i></p>
+                        <div class="new-card-section">
+                            <div class="section-chunk first-name-chunk">
+                                <label>First Name:</label>
+                                <br>
+                                <input type="text" name="firstName">
+                            </div>
+                            <div class="section-chunk last-name-chunk">
+                                <label>Last Name:</label>
+                                <br>
+                                <input type="text" name="lastName">
+                            </div>
+                            <div class="section-chunk billing-chunk">
+                                <label>Billing Address:</label>
+                                <br>
+                                <input type="text" name="billingAddress">
+                            </div>
+                            <div class="section-chunk billing2-chunk">
+                                <label>Billing Address (Additional):</label>
+                                <br>
+                                <input type="text" name="billingAddress2">
+                            </div>
+                            <div class="section-chunk city-chunk">
+                                <label>City:</label>
+                                <br>
+                                <input type="text" name="cityName">
+                            </div>
+                            <div class="section-chunk state-chunk">
+                                <label>State:</label>
+                                <br>
+                                <select>
+                                    <option selected="selected">Select State</option>
+                                </select>
+                            </div>
+                            <div class="section-chunk zip-chunk">
+                                <label>Zip Code:</label>
+                                <br>
+                                <input type="tel" name="zipCode">
+                            </div>
+                            <div class="section-chunk card-type-chunk">
+                                <label>Card Type:</label>
+                                <br>
+                                <select>
+                                    <option selected="selected">Select Card Type</option>
+                                    <option value="visa">Visa</option>
+                                    <option value="mastercard">Mastercard</option>
+                                    <option value="amex">American Express</option>
+                                </select>
+                            </div>
+                            <div class="section-chunk card-number-chunk">
+                                <label>Card Number:</label>
+                                <br>
+                                <input type="tel" name="cardNumber">
+                            </div>
+                            <div class="section-chunk expiration-date-chunk">
+                                <label>Expiration Date:</label>
+                                <br>
+                                <select>
+                                    <option selected="selected" value="1">January (01)</option>
+                                    <option value="2">February (02)</option>
+                                    <option value="3">March (03)</option>
+                                    <option value="4">April (04)</option>
+                                    <option value="5">May (05)</option>
+                                    <option value="6">June (06)</option>
+                                    <option value="7">July (07)</option>
+                                    <option value="8">August (08)</option>
+                                    <option value="9">September (09)</option>
+                                    <option value="10">October (10)</option>
+                                    <option value="11">Novemeber (11)</option>
+                                    <option value="12">December (12)</option>
+                                </select>
+                            </div>
+                            <div class="section-chunk expiration-year-chunk">
+                                <select>
+                                    <option selected="selected" value="2017">2017</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2021">2021</option>
+                                </select>
+                            </div>
+                            <div class="section-chunk cvv-chunk">
+                                <label>CVV Code:</label>
+                                <br>
+                                <input type="tel" name="cvvCode">
+                            </div>
+                            <i class="icons8-info cvv-info"></i>
+                            <label class="save-card">
+                                <input type="checkbox" name="saveCard">Save this card for future use.</label>
+                        </div>
+                    </form>
+                </div>
+                <!--*******************Stamp Transaction Card*******************-->
+                <table class="stamp-transaction-card"></table>
+            </div>
+            <div class="actions-panel">
+                <div class="message-reply-actions">
+                    <div>
+                        <input type="checkbox">
+                        <p>Provide Return Postage (1 Stamp)</p>
+                    </div>
+                    <button class="primary-button-blue">SEND</button>
+                </div>
+                <div class="contact-list-actions">
+                    <p><i class="icons8-plus-2-math-2"></i>&nbsp;<u>Add Contact</u></p>
+                    <button class="primary-button-blue" disabled="true">COMPOSE</button>
+                </div>
+                <div class="search-contact-actions">
+                    <p><i class="icons8-multiply-2-2"></i>&nbsp;<u>Cancel</u></p>
+                    <button class="primary-button-blue" disabled="true">SEARCH</button>
+                </div>
+                <div class="add-contact-actions">
+                    <p><i class="icons8-undo"></i>&nbsp;<u>Back</u></p>
+                    <button class="primary-button-blue" disabled="true">ADD CONTACT</button>
+                </div>
+                <div class="purchase-stamps-actions">
+                    <p><i class="icons8-multiply-2-2"></i>&nbsp;<u>Cancel</u></p>
+                    <button class="primary-button-blue" disabled="true">PURCHASE</button>
+                </div>
+                <div class="stamp-history-actions">
+                    <p><i class="icons8-undo"></i>&nbsp;<u>Back</u></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

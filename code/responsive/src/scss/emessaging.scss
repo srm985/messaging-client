@@ -1,0 +1,1124 @@
+$primary-blue: #0074C8;
+$primary-green: #3FAE29;
+$primary-orange: #E75200;
+$primary-red: #C0392B;
+$primary-dark-gray: #555555;
+$primary-light-gray: #E0E0E0;
+$background-gray: #F5F5F5;
+$font-stack: 'Open Sans',
+'Helvetica',
+sans-serif;
+$font-size-default: 12px;
+$font-size-header: 20px;
+$font-dark: #555555;
+$font-light: #FFFFFF;
+$header-height: 50px;
+$default-border: solid 1px $primary-light-gray;
+$default-border-radius: 2px;
+$container-width: 1000px;
+$column1-width: 175px;
+$card-shadow: rgba(161, 161, 161, 0.35) 0 3px 3px 0;
+
+body {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.app-container {
+    font-size: 0;
+    position: relative;
+    width: $container-width;
+    height: 560px;
+     ::-webkit-scrollbar {
+        display: none;
+    }
+    p {
+        font-size: $font-size-default;
+    }
+    .blackout-wrapper {
+        position: absolute;
+        z-index: 99999;
+        top: -1px;
+        left: -1px;
+        display: flex;
+        width: calc(100% + 1px);
+        height: calc(100% + 2px);
+        background-color: rgba(0, 0, 0, 0.8);
+
+        align-items: center;
+        justify-content: center;
+        .modal-content-wrapper {
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            padding: 20px;
+            transform: scale(0);
+            border: $default-border;
+            border-radius: $default-border-radius;
+            background-color: #FFFFFF;
+
+            justify-content: space-between;
+            align-items: center;
+            .modal-message-wrapper {
+                font-size: 14px;
+                width: 100%;
+            }
+            .modal-image {
+                display: block;
+                max-width: calc(100% - 40px);
+                min-height: 0;
+                max-height: calc(100% - 55px);
+            }
+            .modal-nav-wrapper {
+                width: 100%;
+                button:first-of-type {
+                    float: left;
+                }
+                button:last-of-type {
+                    float: right;
+                }
+            }
+        }
+        .large-modal {
+            width: calc(100% - 40px);
+            max-width: 800px;
+            height: 500px;
+
+            @extend .modal-content-wrapper;
+        }
+        .small-modal {
+            width: calc(100% - 40px);
+            max-width: 400px;
+            height: 175px;
+
+            @extend .modal-content-wrapper;
+        }
+        .modal-active {
+            transition: all 0.15s ease-in-out;
+            transform: scale(1);
+        }
+    }
+    .button-specs {
+        font-size: 14px;
+        font-weight: bold;
+        width: 140px;
+        height: 35px;
+        cursor: pointer;
+        text-transform: uppercase;
+        border-radius: $default-border-radius;
+        outline: none;
+    }
+    .button-specs:disabled {
+        cursor: default;
+        opacity: 0.5;
+    }
+    .primary-button {
+        border: none;
+
+        @extend .button-specs;
+    }
+    .secondary-button {
+        border: solid 2px $primary-dark-gray;
+        background-color: #FFFFFF;
+
+        @extend .button-specs;
+    }
+    .primary-button-blue {
+        color: $font-light;
+        background-color: $primary-blue;
+
+        @extend .primary-button;
+    }
+    .primary-button-green {
+        color: $font-light;
+        background-color: $primary-green;
+
+        @extend .primary-button;
+    }
+    .primary-button-orange {
+        color: $font-light;
+        background-color: $primary-orange;
+
+        @extend .primary-button;
+    }
+    .primary-button-red {
+        color: $font-light;
+        background-color: $primary-red;
+
+        @extend .primary-button;
+    }
+    .secondary-button-orange {
+        color: $primary-orange;
+        border-color: $primary-orange;
+
+        @extend .secondary-button;
+    }
+    .secondary-button-gray {
+        color: $font-dark;
+        border-color: $primary-dark-gray;
+
+        @extend .secondary-button;
+    }
+    .navigation-button-selected {
+        color: $font-light;
+        background-color: $primary-blue;
+    }
+}
+
+.app-container,
+.app-container * {
+    font-family: $font-stack;
+    box-sizing: border-box;
+    color: $font-dark;
+}
+
+.column-1,
+.column-2 {
+    display: inline-block;
+    clear: none;
+    box-sizing: content-box;
+    vertical-align: top;
+}
+
+.column-1 {
+    width: $column1-width;
+    height: 100%;
+}
+
+.logo-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 170px;
+    margin: -1px 0 0 -1px;
+    border: $default-border;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-section .avatar {
+    width: 75px;
+    height: 75px;
+    margin: 20px 0;
+    border: $default-border;
+    border-radius: 50%;
+}
+
+.logo-section button {
+    margin-bottom: 20px;
+}
+
+.controls-section {
+    font-size: calc(#{$font-size-default} + 2px);
+    box-sizing: border-box;
+    width: 100%;
+    height: calc(100% - 167px);
+    margin: -1px 0 0 -1px;
+    border: $default-border;
+    span {
+        font-size: calc(#{$font-size-default} + 2px);
+        color: inherit;
+    }
+    i {
+        font-size: 1.6 * $font-size-default;
+        margin-right: 10px;
+        color: inherit;
+    }
+    >ul {
+        margin: 0;
+        padding: 0;
+        >li {
+            width: 100%;
+            padding: 15px 15px;
+            list-style: none;
+            cursor: pointer;
+        }
+        .unread-email-count {
+            font-weight: bold;
+            float: right;
+            margin-top: 6px;
+        }
+    }
+}
+
+.column-2 {
+    font-size: 0;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: calc(#{$container-width} - #{$column1-width} + 2px);
+    height: calc(100% + 2px);
+    margin: -1px 0 0 -2px;
+    border: $default-border;
+    .column-2-header {
+        font-size: calc(#{$font-size-default} + 2px);
+        display: flex;
+        box-sizing: border-box;
+        width: 100%;
+        height: $header-height;
+        margin: -1px 0 0 0;
+        padding: 0 20px;
+        border-bottom: $default-border;
+
+        align-items: center;
+        justify-content: space-between;
+        p {
+            font-size: inherit;
+        }
+    }
+}
+
+.column-2-header * {
+    cursor: pointer;
+}
+
+.column-2-header>span:first-of-type {
+    font-size: $font-size-header;
+    font-weight: bold;
+    cursor: default;
+}
+
+.column-2a,
+.column-2b {
+    display: inline-block;
+}
+
+.column-2a {
+    overflow: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    width: 277px;
+    height: calc(100% - #{$header-height} + 1px);
+    border-right: $default-border;
+    ul {
+        width: 100%;
+        padding: 0;
+        list-style: none;
+        li {
+            transition: transform 0.05s ease-in-out;
+            background-color: #FFFFFF;
+        }
+    }
+    .message-thumbnail {
+        position: relative;
+        width: 100%;
+        height: 80px;
+        margin-top: -1px;
+        cursor: pointer;
+        border-top: $default-border;
+        border-bottom: $default-border;
+        >div:first-of-type {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            display: flex;
+            width: 50px;
+            height: 100%;
+            background-color: $primary-red;
+
+            align-items: center;
+            justify-content: center;
+            i {
+                font-size: 24px;
+                color: $font-light;
+            }
+        }
+        >div:last-of-type {
+            position: absolute;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 23px 21px;
+            background-color: #FFFFFF;
+            >div {
+                position: relative;
+                width: 100%;
+                height: 100%;
+            }
+        }
+        input {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .email-receipt-time {
+            font-size: calc(#{$font-size-default} - 2px);
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        p {
+            overflow: hidden;
+            margin: 0 0 0 30px;
+            padding: 0;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        p:first-of-type {
+            max-width: 130px;
+        }
+        p:last-of-type {
+            font-style: italic;
+        }
+    }
+    .unread-message * {
+        font-weight: bold;
+    }
+}
+
+.column-2b {
+    overflow-y: auto;
+    width: 548px;
+    height: calc(100% - #{$header-height} + 1px);
+    padding: 20px;
+    vertical-align: top;
+    background-color: $background-gray;
+    .message-card {
+        box-sizing: border-box;
+        width: 100%;
+        min-height: 150px;
+        padding: 20px 30px;
+        background-color: #FFFFFF;
+        box-shadow: $card-shadow;
+        i {
+            cursor: pointer;
+        }
+        .message-card-header {
+            display: flex;
+            width: 100%;
+            padding-bottom: 10px;
+            border-bottom: $default-border;
+
+            justify-content: space-between;
+            .header-information {
+                p {
+                    overflow: hidden;
+                    width: 275px;
+                    margin: 0;
+                    padding: 0;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+            }
+            .header-actions {
+                font-size: 26px;
+                vertical-align: bottom;
+                i {
+                    margin-left: 15px;
+                }
+            }
+        }
+        .image-link {
+            cursor: pointer;
+            text-decoration: underline;
+            color: $primary-orange;
+        }
+    }
+}
+
+.column-2c {
+    overflow-y: auto;
+    box-sizing: border-box;
+    width: 100%;
+    height: calc(100% - #{$header-height} + 2px);
+    padding: 20px 30px;
+    padding: 20px;
+    transform: scale(0);
+    background-color: $background-gray;
+    >* {
+        width: 100%;
+        min-height: 250px;
+        margin-bottom: 80px;
+        padding: 20px 30px;
+        border-radius: $default-border-radius;
+        background-color: #FFFFFF;
+        box-shadow: $card-shadow;
+    }
+    .blank-canvas {
+        font-size: calc(#{$font-size-default} + 2px);
+        padding: 0;
+        background-color: transparent !important;
+        box-shadow: none;
+    }
+    .add-contact-link {
+        cursor: pointer;
+        text-decoration: underline;
+        color: $primary-orange;
+    }
+    .email-reply {
+        display: flex;
+        flex-direction: column;
+        .reply-header {
+            font-size: 0;
+            line-height: $font-size-default;
+            width: 100%;
+        }
+        .reply-info {
+            p {
+                overflow: hidden;
+                margin: 0 0 7px 0;
+                margin-bottom: 10px;
+                padding-bottom: 12px;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                border-bottom: $default-border;
+            }
+            >*>span:first-of-type {
+                font-weight: bold;
+            }
+            span:focus {
+                outline: none;
+            }
+            .line-3 {
+                input {
+                    display: none;
+                }
+                .attachment-button,
+                .attachment-remove-button {
+                    font-size: 14px;
+                    float: right;
+                    margin: 0;
+                    padding: 0;
+                    cursor: pointer;
+                    u {
+                        font-size: $font-size-default;
+                        margin-left: 5px;
+                    }
+                }
+            }
+        }
+        .reply-body {
+            font-size: $font-size-default;
+            position: relative;
+            width: 100%;
+
+            flex-grow: 1;
+            div {
+                width: 100%;
+                min-height: 300px;
+                resize: none;
+                word-wrap: break-word;
+                border: none;
+                outline: none;
+            }
+        }
+    }
+    .contact-list-card,
+    .contact-search-results-card,
+    tr {
+        text-align: left;
+        border: solid 1px #555555;
+    }
+    .contact-list-card,
+    .contact-search-results-card {
+        min-height: 0;
+        padding: 0;
+        border-collapse: collapse;
+        * {
+            font-size: calc(#{$font-size-default} + 2px);
+        }
+        tr {
+            height: 50px;
+        }
+        tr:first-of-type * {
+            font-weight: bold;
+            color: $font-light;
+            background-color: $primary-dark-gray;
+        }
+        tr:nth-of-type(odd) {
+            background-color: $primary-light-gray;
+        }
+        td,
+        th {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        th:nth-of-type(1),
+        td:nth-of-type(1) {
+            width: 95px;
+            input {
+                margin-left: 30px;
+                cursor: pointer;
+                transform: scale(1.5);
+            }
+        }
+        th:nth-of-type(2),
+        td:nth-of-type(2) {
+            width: 290px;
+            padding: 0 10px;
+        }
+        th:nth-of-type(3),
+        td:nth-of-type(3) {
+            padding: 0 30px 0 10px;
+        }
+        td {
+            cursor: pointer;
+        }
+    }
+    .contact-search-card {
+        >div {
+            font-size: 0;
+            width: 500px;
+        }
+        >div>div {
+            font-size: calc(#{$font-size-default} + 2px);
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+        }
+        >div>div:first-of-type {
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input,
+        select {
+            height: 40px;
+            margin: 0;
+            padding: 0 5px;
+            border: solid 1px $primary-dark-gray;
+            border-radius: $default-border-radius;
+        }
+        select {
+            cursor: pointer;
+        }
+        select[name='facilityState'] {
+            width: 150px;
+            margin-right: 20px !important;
+        }
+        select[name='facilityName'] {
+            width: 330px;
+        }
+        input[name='firstName'] {
+            width: 240px;
+            margin-right: 20px !important;
+        }
+        input[name='lastName'] {
+            width: 240px;
+            margin: 0 !important;
+        }
+        input[name='inmateID'] {
+            width: 500px;
+        }
+        .section-break {
+            position: relative;
+            width: 100%;
+            margin: 35px 0 24px 0;
+            border-bottom: $default-border;
+            span {
+                position: absolute;
+                top: -10px;
+                left: 45%;
+                padding: 0 10px;
+                background-color: #FFFFFF;
+            }
+        }
+    }
+    .purchase-stamps-card {
+        * {
+            font-size: calc(#{$font-size-default} + 2px);
+        }
+        >form {
+            width: 500px;
+            >div {
+                font-size: 0;
+            }
+        }
+        .new-card * {
+            cursor: pointer;
+            color: $primary-orange;
+        }
+        label {
+            font-weight: bold;
+        }
+        .stamps-chunk {
+            label {
+                font-weight: normal;
+                display: flex;
+                margin-bottom: -10px;
+                cursor: pointer;
+
+                align-items: flex-start;
+                input {
+                    width: 20px;
+                    height: 20px;
+                }
+                span {
+                    margin: 3px 0 0 10px;
+                }
+            }
+        }
+        select,
+        input[type='radio'],
+        input[type='checkbox'] {
+            cursor: pointer;
+        }
+        select,
+        input[type='text'],
+        input[type='tel'] {
+            width: 100%;
+            height: 40px;
+            padding: 0 5px;
+            border: solid 1px #555555;
+            border-radius: $default-border-radius;
+        }
+        .section-break {
+            width: 100%;
+            margin: 17px 0 25px 0;
+            border-bottom: $default-border;
+        }
+        .section-chunk {
+            display: inline-block;
+            clear: both;
+            margin-bottom: 20px;
+        }
+        .inmate-name-chunk,
+        .stamps-chunk,
+        .saved-card-chunk,
+        .billing-chunk,
+        .billing2-chunk,
+        .card-type-chunk,
+        .card-number-chunk {
+            width: 500px;
+        }
+        .first-name-chunk,
+        .last-name-chunk {
+            width: 240px;
+            margin-top: 50px;
+        }
+        .first-name-chunk,
+        .city-chunk,
+        .state-chunk,
+        .expiration-date-chunk {
+            margin-right: 20px;
+        }
+        .city-chunk,
+        .state-chunk,
+        .expiration-date-chunk {
+            width: 175px;
+        }
+        .zip-chunk {
+            width: 110px;
+        }
+        .expiration-year-chunk,
+        .cvv-chunk {
+            width: 100px;
+        }
+        .expiration-year-chunk {
+            margin-right: 70px;
+        }
+        .cvv-info {
+            font-size: 24px;
+            margin-left: 11px;
+            cursor: pointer;
+            color: $primary-orange;
+        }
+        .save-card {
+            font-weight: normal;
+            input {
+                margin-right: 10px;
+            }
+        }
+    }
+    .stamp-transaction-card tr {
+        text-align: left;
+        border: solid 1px #555555;
+    }
+    .stamp-transaction-card {
+        min-height: 0;
+        padding: 0;
+        border-collapse: collapse;
+        * {
+            font-size: calc(#{$font-size-default} + 2px);
+        }
+        tr {
+            height: 50px;
+        }
+        tr:first-of-type * {
+            font-weight: bold;
+            color: $font-light;
+            background-color: $primary-dark-gray;
+        }
+        tr:nth-of-type(odd) {
+            background-color: $primary-light-gray;
+        }
+        td,
+        th {
+            overflow: hidden;
+            width: 25%;
+            white-space: nowrap;
+            text-transform: capitalize;
+            text-overflow: ellipsis;
+        }
+        th:nth-of-type(1),
+        td:nth-of-type(1) {
+            padding: 0 10px 0 20px;
+        }
+        th:nth-of-type(2),
+        td:nth-of-type(2) {
+            padding: 0 10px;
+            text-align: center !important;
+        }
+        th:nth-of-type(3),
+        td:nth-of-type(3) {
+            padding: 0 20px 0 10px;
+            text-align: center !important;
+        }
+    }
+}
+
+.actions-panel {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 60px;
+    min-height: 0;
+    padding: 0 20px;
+    background-color: rgba(25, 25, 25, 0.8);
+    >* {
+        display: flex;
+        width: 100%;
+        height: 100%;
+
+        align-items: center;
+        justify-content: space-between;
+    }
+    >div>*:first-of-type * {
+        cursor: pointer;
+    }
+    .message-reply-actions {
+        >div {
+            display: flex;
+            width: 50%;
+
+            justify-content: flex-start;
+            align-items: center;
+            p {
+                width: 75%;
+                margin-bottom: 0;
+                margin-left: 7px;
+                color: $font-light;
+            }
+        }
+    }
+    .contact-list-actions,
+    .search-contact-actions,
+    .add-contact-actions,
+    .purchase-stamps-actions,
+    .stamp-history-actions {
+        * {
+            font-size: 14px;
+            color: $font-light;
+        }
+        i {
+            font-size: 26px;
+        }
+    }
+}
+
+.column-active {
+    transition: transform 0.2s ease-in-out;
+    transform: scale(1);
+}
+
+@media only screen and (max-width: 899px) {
+    .app-container {
+        display: flex;
+        width: 100%;
+        min-width: 300px;
+        max-width: 768px;
+        height: 541px;
+        .button-specs {
+            font-size: 12px;
+            font-weight: bold;
+            width: 100px;
+        }
+        .selected-table-element {
+            background-color: $primary-blue !important;
+            box-shadow: inset 0 0 5px #000000;
+            * {
+                color: $font-light !important;
+            }
+        }
+        .swipe-delete {
+            >div:last-of-type {
+                transform: translateX(50px);
+            }
+        }
+    }
+    .blackout-wrapper {
+        .large-modal {
+            max-height: 300px !important;
+        }
+    }
+    .column-1 {
+        min-width: 50px !important;
+        max-width: 50px !important;
+        height: 100%;
+        .logo-section {
+            display: none;
+        }
+        .controls-section {
+            height: calc(100% + 2px);
+        }
+        .controls-section li {
+            font-size: 10px !important;
+            display: flex;
+            height: 60px;
+            margin: 0;
+            padding: 0;
+            border-radius: 3px;
+
+            align-items: center;
+            justify-content: center;
+            i {
+                font-size: 2 * $font-size-default;
+                margin: 0;
+                padding: 0;
+            }
+            span {
+                display: none;
+            }
+        }
+    }
+    .column-2 {
+        flex-grow: 1;
+        .column-2-header {
+            font-size: $font-size-default;
+            padding: 0 10px;
+            >span:first-of-type {
+                font-size: calc(#{$font-size-default} + 2px);
+            }
+        }
+        .column-2a,
+        .column-2b,
+        .column-2c {
+            width: calc(100% + 1px);
+        }
+        .column-2a {
+            .message-thumbnail {
+                height: 50px;
+                input {
+                    visibility: hidden;
+                }
+                p {
+                    margin: 0;
+                }
+                >div:last-of-type {
+                    padding: 7px 10px;
+                }
+            }
+        }
+        .column-2b {
+            display: none;
+            padding: 0;
+            .message-card {
+                min-height: 100%;
+                padding: 10px;
+                box-shadow: none;
+                .message-card-header {
+                    padding-bottom: 10px;
+                    border-bottom: $default-border;
+                    .header-information {
+                        p {
+                            overflow: hidden;
+                            width: 150px;
+                            margin: 0;
+                            padding: 0;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                        }
+                    }
+                    .header-actions {
+                        font-size: 20px;
+                        vertical-align: bottom;
+                        i {
+                            margin-left: 15px;
+                        }
+                    }
+                }
+            }
+        }
+        .column-2c {
+            overflow-x: hidden;
+            padding: 0;
+            >* {
+                padding: 10px;
+            }
+            .blank-canvas {
+                font-size: $font-size-default;
+            }
+            .email-reply {
+                .reply-info {
+                    p:nth-of-type(3) {
+                        span:nth-of-type(1) {
+                            display: inline-block;
+                            vertical-align: top;
+                        }
+                        span:nth-of-type(2) {
+                            display: inline-block;
+                            overflow: hidden;
+                            max-width: 60px;
+                            vertical-align: top;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                        }
+                    }
+                }
+            }
+            .contact-list-card,
+            .contact-search-results-card {
+                border: none !important;
+                * {
+                    font-size: $font-size-default;
+                    border: none !important;
+                }
+                th:first-of-type,
+                tr>td:first-of-type,
+                th:last-of-type,
+                tr>td:last-of-type {
+                    display: none;
+                }
+            }
+            .contact-search-card {
+                >div {
+                    font-size: 0;
+                    width: 100%;
+                }
+                >div>div {
+                    font-size: $font-size-default;
+                    width: 100%;
+                    margin-bottom: 20px;
+                }
+                input,
+                select {
+                    width: 100%;
+                }
+                .section-break {
+                    margin: 8px 0 24px 0;
+                    span {
+                        top: -8px;
+                        left: 106px;
+                    }
+                }
+            }
+            .purchase-stamps-card {
+                >form {
+                    width: 100%;
+                    label,
+                    select,
+                    option,
+                    input {
+                        font-size: $font-size-default;
+                    }
+                }
+                .section-chunk {
+                    width: 100%;
+                    margin: 0 0 20px 0 !important;
+                }
+                .first-name-chunk {
+                    margin-top: 30px !important;
+                }
+                .stamps-chunk {
+                    label {
+                        align-items: center;
+                        input {
+                            width: 30px;
+                            height: 30px;
+                        }
+                    }
+                }
+                .cvv-chunk {
+                    width: 210px;
+                }
+                .cvv-info {
+                    margin-left: 15px;
+                }
+                .save-card {
+                    input {
+                        transform: scale(1.5);
+                    }
+                }
+            }
+            .stamp-transaction-card {
+                border: none !important;
+                * {
+                    font-size: $font-size-default;
+                    border: none !important;
+                }
+            }
+        }
+    }
+    .actions-panel {
+        .message-reply-actions {
+            >div {
+                input {
+                    transform: scale(1.5);
+                }
+                p {
+                    font-size: calc(#{$font-size-default} - 2px);
+                }
+            }
+        }
+        .contact-list-actions {
+            p {
+                i {
+                    font-size: 24px;
+                }
+            }
+        }
+        p {
+            i {
+                font-size: 16px !important;
+            }
+            u {
+                font-size: $font-size-default !important;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .app-container {
+        .message-thumbnail-selected {
+            >div:last-of-type {
+                background-color: $primary-light-gray !important;
+            }
+        }
+        .controls-section {
+            .navigation-button:hover {
+                color: $font-light;
+                background-color: $primary-blue;
+            }
+            li:first-of-type {
+                display: none;
+            }
+        }
+        .column-2a {
+            .message-thumbnail:hover {
+                >div:first-of-type {
+                    background-color: #FFFFFF;
+                }
+                >div:last-of-type {
+                    background-color: rgba(224, 224, 224, 0.25);
+                }
+            }
+        }
+    }
+    .actions-panel {
+        .message-reply-actions {
+            p {
+                margin-top: 0;
+            }
+        }
+    }
+}

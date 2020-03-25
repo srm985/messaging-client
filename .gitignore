@@ -1,6 +1,8 @@
-/kiosk/node_modules/
-/kiosk/src/.sass-cache/
-/kiosk/src/css/emessaging.css.map
-/responsive/node_modules/
-/responsive/src/.sass-cache/
-/responsive/src/css/emessaging.css.map
+code/kiosk/node_modules/
+code/kiosk/src/.sass-cache/
+code/kiosk/src/css/emessaging.css.map
+code/kisok/web/
+code/responsive/node_modules/
+code/responsive/src/.sass-cache/
+code/responsive/src/css/emessaging.css.map
+code/responsive/web/
