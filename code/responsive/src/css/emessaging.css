@@ -493,7 +493,7 @@ body {
   .column-2c .purchase-stamps-card .stamps-chunk label {
     font-weight: normal;
     display: flex;
-    margin-bottom: -10px;
+    margin-bottom: 10px;
     cursor: pointer;
     align-items: flex-start; }
     .column-2c .purchase-stamps-card .stamps-chunk label input {
